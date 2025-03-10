@@ -13,20 +13,41 @@ const UserSchema = new mongoose.Schema({
         index: true,
         unique: true
     },
-    userName: {
+    name: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        minlength: 2
     },
-    email: {
-        type: String,
+    age: {
+        type: Number,
         required: true,
-        unique: true
+        min: 0,
+        max: 120
+    },
+    dateOfBirth: {
+        type: Date,
+        required: true
     },
     password: {
         type: String,
-        minLength: 4,
-        required: true
+        required: true,
+        minlength: 10,
+        validate: {
+            validator: function(v) {
+                return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$/.test(v);
+            },
+            message: props => `${props.value} is not a valid password!`
+        }
+    },
+    gender: {
+        type: String,
+        required: true,
+        enum: ['Male', 'Female', 'Other']
+    },
+    about: {
+        type: String,
+        maxlength: 5000
     }
 });
 

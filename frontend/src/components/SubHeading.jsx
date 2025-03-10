@@ -1,5 +1,5 @@
 import React from "react";
 
 export const Subheading = ({ label }) => {
-  return <h2 className="text-lg text-gray-600">{label}</h2>;
+  return <h2 className="text-1px text-gray-800">{label}</h2>;
 };

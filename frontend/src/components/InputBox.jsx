@@ -1,11 +1,12 @@
 import React from "react";
 
-export const InputBox = ({ label, placeholder }) => {
+export const InputBox = ({ label, placeholder, onChange, type="text" }) => {
   return (
-    <div className="my-2">
-      <label className="block text-gray-700">{label}</label>
+    <div className="mb-1">
+      <label className="block text-gray-900 text-left">{label}</label>
       <input
-        type="text"
+      onChange={onChange}
+        type={type}
         placeholder={placeholder}
         className="w-full p-2 border border-gray-300 rounded mt-1"
       />
