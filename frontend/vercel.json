@@ -1,0 +1,17 @@
+{
+    "build": {
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html",
+        "headers": {
+          "Cache-Control": "s-maxage=1, stale-while-revalidate"
+        }
+      }
+    ]
+  }
+  
